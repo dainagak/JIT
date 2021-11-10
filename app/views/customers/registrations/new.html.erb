@@ -2,6 +2,48 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "customers/shared/error_messages", resource: resource %>
+  
+  <div class="row">
+    <label class="col-lg-3">名前</label>
+    <div class="col-lg-3">
+      <%= f.text_field :last_name, autoforcus: true, autocomplete: "last_name",  placeholder: "(姓)" %>
+    </div>
+
+    <div class="col-lg-3">
+      <%= f.text_field :first_name, autoforcus: true, autocomplete: "first_name",  placeholder: "(名)" %>
+    </div>
+  </div><br>
+
+  <div class="row">
+    <label class="col-lg-3">フリガナ</label>
+    <div class="col-lg-3">
+      <%= f.text_field :last_name_kana, autoforcus: true, autocomplete: "last_name_kana",  placeholder: "(セイ)" %>
+    </div>
+    <div class="col-lg-3">
+      <%= f.text_field :first_name_kana, autoforcus: true, autocomplete: "first_name_kana",  placeholder: "(メイ)" %>
+    </div>
+  </div><br>
+
+  <div class="row">
+    <label class="col-lg-3">郵便番号（ハイフンなし）</label>
+    <div class="col-lg-3">
+      <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code",  placeholder: "\uf015", class: 'fa' %>
+    </div>
+  </div><br>
+
+  <div class="row">
+    <label class="col-lg-3">住所</label>
+    <div class="col-lg-6">
+      <%= f.text_field :address, autofocus: true, autocomplete: "address", :size=>"60",  placeholder: "\uf015", class: 'fa' %>
+    </div>
+  </div><br>
+
+  <div class="field">
+    <label class="col-lg-3">電話番号（ハイフンなし）</label>
+    <div class="col-lg-3">
+      <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number",  placeholder: "\uf095", class: 'fa' %>
+    </div>
+  </div><br>
 
   <div class="field">
     <%= f.label :email %><br />
