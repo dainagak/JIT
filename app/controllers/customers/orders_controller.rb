@@ -4,7 +4,7 @@ class Customers::OrdersController < ApplicationController
 	def about
 		@order = Order.new
 		@customer = current_customer
-		@addresses = Address.where(customer_id: current_customer.id)
+		# @addresses = Address.where(customer_id: current_customer.id)
 	end
 
 	def create
@@ -38,7 +38,7 @@ class Customers::OrdersController < ApplicationController
 			session[:order][:address] = customer.address
 			session[:order][:name] = customer.last_name + customer.first_name
 
-		# 登録済住所が選択された時
+		#登録済住所が選択された時
 		elsif destination == 1
 
 			address = Address.find(params[:address_for_order])
@@ -46,7 +46,7 @@ class Customers::OrdersController < ApplicationController
 			session[:order][:address] = address.address
 			session[:order][:name] = address.name
 
-		# 新しいお届け先が選択された時
+		#新しいお届け先が選択された時
 		elsif destination == 2
 
 			session[:new_address] = 2
