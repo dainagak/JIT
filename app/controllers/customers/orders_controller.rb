@@ -58,9 +58,9 @@ class Customers::OrdersController < ApplicationController
 
 		# お届け先情報に漏れがあればリダイレクト
 		if session[:order][:postal_code].presence && session[:order][:address].presence && session[:order][:name].presence
-			redirect_to new_public_order_path
+			redirect_to new_order_path
 		else
-			redirect_to public_orders_about_path
+			redirect_to orders_about_path
 		end
 
 	end

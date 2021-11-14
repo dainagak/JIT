@@ -14,10 +14,10 @@ class Customers::CartItemsController < ApplicationController
 
         if @cart_item.save
            flash[:notice] = "#{@cart_item.item.name}をカートに追加しました。"
-           redirect_to public_cart_items_path
+           redirect_to cart_items_path
         else
             flash[:alert] = "個数を選択してください"
-            render "public/items/show"
+            render "items/show"
         end
     end
 
