@@ -1,6 +1,6 @@
   <h2>会員情報編集</h2>
 
-  <%= form_with model: @customer, url: admin_customer_path do |f| %>
+  <%= form_with model: @customer, url: admins_customer_path do |f| %>
 
   <table class="row table">
     <tr>
@@ -44,7 +44,7 @@
 
     <tr>
       <th><%= f.label :会員ステータス %></th>
-      <td><%= f.select :is_active, [["有効会員","Invalid"], ["退会済み","Available"]], class:"form-control" %></td>
+      <td><%= f.select :is_active, [["有効会員","false"], ["退会済み","true"]], class:"form-control" %></td>
     </tr>
   </table>
 
