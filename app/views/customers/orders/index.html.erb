@@ -1,5 +1,7 @@
+<section class="top-section text-center">
 <div class="row">
-	<div class="col-xs-12">
+  <div class="col-lg-12 col-lg-offset-1">
+
 		<h3><strong>注文履歴一覧</strong></h3>
 		<table class="table table-bordered table-condensed">
 		<tr>
@@ -24,9 +26,12 @@
 			</td>
 			<td class="col-xs-2"><%= order.total_payment.to_s(:delimited, delimiter: ',') %></td>
 			<td class="col-xs-2"><%= order.order_status %></td>
-			<td><%= link_to "表示する", public_order_path(order), class: "btn btn-primary" %></td>
+			<td><%= link_to "表示する", order_path(order), class: "btn btn-primary" %></td>
 		</tr>
 		<% end %>
 	</table>
 	</div>
 </div>
+        </div>
+</div>
+</section>

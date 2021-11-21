@@ -1,3 +1,4 @@
+<section class="top-section text-center overflow-auto">
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -38,30 +39,37 @@
     </div>
   </div><br>
 
-  <div class="field">
+<div class="row">
     <label class="col-lg-3">電話番号（ハイフンなし）</label>
     <div class="col-lg-3">
       <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number",  placeholder: "\uf095", class: 'fa' %>
     </div>
   </div><br>
 
-  <div class="field">
-    <%= f.label :email %><br />
+<div class="row">
+       <label class="col-lg-3"><%= f.label :email %></label>
+       <div class="col-lg-3">
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+   </div>
+  </div><br>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
+  <div class="row">
+    <label class="col-lg-3"><%= f.label :password %><br>
+       <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
+    </label>
+    <div class="col-lg-3">
     <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+     </div>
+  </div><br>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
+ <div class="row">
+    <label class="col-lg-3"><%= f.label :password_confirmation %></label>
+    <div class="col-lg-3">
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+      </div>
+  </div><br>
 
   <div class="actions">
     <%= f.submit "Sign up" %>
@@ -69,3 +77,4 @@
 <% end %>
 
 <%= render "customers/shared/links" %>
+</section>

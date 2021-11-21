@@ -11,12 +11,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="./footerFixed.js"></script>
     <title>Jit</title>
   </head>
   
- <body class="d-flex flex-column vh-100">
+ <body class="d-flex flex-column vh-100 overflow-auto">
     <header class="shadow-sm">
-      <nav class="navbar navbar-expand-lg navbar-light">
+      <nav class="navbar navbar-expand-lg navbar-light pt-1 pb-1">
         <div class="container">
 <span style="font-size:40px;">
       <%= link_to 'JIT', admins_root_path, class: 'nav-link text-dark'%>
@@ -72,13 +74,15 @@
 </header>
 </nav>
 </div>
+<div class="wrapper">
   <body>
+    <div class="container">
     <%= yield %>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
-<footer class="footer bg-dark text-white pt-5 pb-4 fixed-bottom">
+    </div>
+<footer class="footer bg-dark text-white">
   <div class="container">
     <p class="text-muted">
         <div class="row no-gutters">
@@ -86,11 +90,13 @@
             <p>Just In Timeに注文ができるECサイトです。</p>
           </div>
           <div class="col-md-8">
-            <h6 class="text-white mt-2 mb-3">Link</h6>
+            <h6 class="text-white mt-2 mb-3">Link
             <ul class="p-0 list-unstyled">
               <li>
-                <span style="color:#ff0000;font-weight:bold;">キーワード</span>
-                <% link_to "会社概要", home_about_path %>
+                <!--<font color="red">-->
+                <%= link_to "会社概要", home_about_path %>
+                </h6>
+                <!--</font>-->
                 </span>
               </li>
             </ul>
@@ -101,5 +107,6 @@
   </div>
 </footer>
   </body>
+  </div>
 
 </html>
