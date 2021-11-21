@@ -1,12 +1,13 @@
+<section class="top-section text-center">
 <div class="row">
-  <div class="col-xs-4">
-    <h1>商品詳細画面</h1>
-      <%= attachment_image_tag @item, :image, :fill, 300, 300, fallback: 'no_image.jpg' %>
-  </div>
-    <br><br><br><br>
-      <div class="col-xs-8">
-        <table class="table">
-          <tbody>
+  <div class="col-lg-12 col-lg-offset-1">
+
+    <h1>登録商品詳細</h1>
+          <div class="product-img" style="margin-top: 20px;">
+        <%= attachment_image_tag @item, :image, fallback: "no_image.jpg", size: "150x150" %>
+          </div>
+    <table class="table table-striped">
+                <tbody>
             <tr>
             <td>商品名</td>
             <td><%= @item.name %></td>
@@ -15,11 +16,6 @@
             <tr>
             <td>商品説明</td>
             <td><%= @item.introduction %></td>
-            </tr>
-
-            <tr>
-            <td>ジャンル</td>
-            <td><%= @item.genre_id %></td>
             </tr>
 
             <tr>
@@ -39,8 +35,8 @@
             </tr>
           </tbody>
         </table>
-        <div class="col-md-offset-1 col-md-2 text-right">
-          <%= link_to "編集", edit_admin_item_path(@item.id), class:"btn btn-success"%>
-        </div>
+          <%= link_to "編集", edit_admins_item_path(@item.id), class:"btn btn-success"%>
       </div>
+        </div>
 </div>
+</section>
