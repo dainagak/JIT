@@ -16,97 +16,86 @@
     <title>Jit</title>
   </head>
   
- <body class="d-flex flex-column vh-100 overflow-auto">
+  <body class="d-flex flex-column vh-100 overflow-auto">
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light pt-1 pb-1">
         <div class="container">
-<span style="font-size:40px;">
+    <span style="font-size:40px;">
       <%= link_to 'JIT', admins_root_path, class: 'nav-link text-dark'%>
-</span>
-      <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
-  <% if admin_signed_in? %>
-    <!--<li>-->
-    <!--  <%#= link_to 'ジャンル一覧', admin_genres_path %>-->
-    <!--</li>-->
-  <div class="collapse navbar-collapse">
-    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-    <li>
-      <%= link_to '商品一覧', admins_items_path, class: 'nav-link text-dark' %>
-    </li>
-    <li>
-      <%= link_to '会員一覧', admins_customers_path, class: 'nav-link text-dark'  %>
-    </li>
-    <li>
-      <%= link_to '注文履歴一覧', admins_orders_path, class: 'nav-link text-dark'  %>
-    </li>
-    <li>
-      <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark'  %>
-    </li>
-  <% elsif customer_signed_in? %>
-    <li>
-      <%= link_to 'マイページ', customers_path, class: 'nav-link text-dark'  %>
-    </li>
-    <li>
-      <%= link_to '商品一覧', items_path, class: 'nav-link text-dark'  %>
-    </li>
-    <li>
-      <%= link_to 'カート画面', cart_items_path, class: 'nav-link text-dark'  %>
-    </li>
-    <li>
-      <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-dark'  %>
-    </li>
-  <% else %>
-    <li>
-      <%= link_to "会員登録", new_customer_registration_path, class: 'nav-link text-dark'  %>
-    </li>
-    <li>
-      <%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-dark'  %>
-    </li>
+    </span>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
+        <% if admin_signed_in? %>
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+              <li>
+                <%= link_to '商品一覧', admins_items_path, class: 'nav-link text-dark' %>
+              </li>
+              <li>
+                <%= link_to '会員一覧', admins_customers_path, class: 'nav-link text-dark'  %>
+              </li>
+              <li>
+                <%= link_to '注文履歴一覧', admins_orders_path, class: 'nav-link text-dark'  %>
+              </li>
+              <li>
+                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark'  %>
+              </li>
+            <% elsif customer_signed_in? %>
+              <li>
+                <%= link_to 'マイページ', customers_path, class: 'nav-link text-dark'  %>
+              </li>
+              <li>
+                <%= link_to '商品一覧', items_path, class: 'nav-link text-dark'  %>
+              </li>
+              <li>
+                <%= link_to 'カート画面', cart_items_path, class: 'nav-link text-dark'  %>
+              </li>
+              <li>
+                <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-dark'  %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to "会員登録", new_customer_registration_path, class: 'nav-link text-dark'  %>
+              </li>
+              <li>
+                <%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-dark'  %>
+              </li>
+            <% end %>
+            </ul>
+          </div>
+      </nav>
+    </div>
+    </header>
 
-  <% end %>
-    </ul>
-  </div>
-  </nav>
-</div>
-</header>
-</nav>
-</div>
-<div class="wrapper">
+    <div class="wrapper">
   <body>
     <div class="container">
     <%= yield %>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     </div>
-<footer class="footer bg-dark text-white">
-  <div class="container">
-    <p class="text-muted">
+  <footer class="footer bg-dark text-white">
+    <div class="container">
+      <p class="text-muted">
         <div class="row no-gutters">
           <div class="col-md-4">
             <p>Just In Timeに注文ができるECサイトです。</p>
           </div>
           <div class="col-md-8">
             <h6 class="text-white mt-2 mb-3">Link
-            <ul class="p-0 list-unstyled">
+              <ul class="p-0 list-unstyled">
               <li>
-                <!--<font color="red">-->
                 <%= link_to "会社概要", home_about_path %>
-                </h6>
-                <!--</font>-->
-                </span>
+            </h6>
               </li>
-            </ul>
+              </ul>
           </div>
         </div>
-      </div>
-    </p>
-  </div>
-</footer>
+      </p>
+    </div>
+    </div>
+  </footer>
   </body>
-  </div>
-
+      </div>
 </html>

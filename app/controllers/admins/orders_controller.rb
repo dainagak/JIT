@@ -2,8 +2,6 @@ class Admins::OrdersController < ApplicationController
 	before_action :authenticate_admin!
 
 	def index
-		#@search = Order.ransack(params[:q])
-    #@orders = @search.result.page(params[:page]).per(10)
     @orders = Order.all
 	end
 
@@ -31,5 +29,5 @@ class Admins::OrdersController < ApplicationController
 	def order_params
 		params.require(:order).permit(:order_status, :customer_id)
 	end
-
+	
 end

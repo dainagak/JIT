@@ -1,44 +1,41 @@
 <section class="top-section text-center">
-<div class="row">
-  <div class="col-lg-12 col-lg-offset-1">
-
+  <div class="row">
+    <div class="col-lg-12 col-lg-offset-1">
       <h2>注文明細</h2>
-
   <div class="col-lg-12">
     <table class="table table-striped">
       <tbody>
-      <tr>
-        <th>購入者</th>
-        <td><%= link_to admins_customer_path(@order.customer) do %>
-        <%= @order.customer.last_name %>
-        <%= @order.customer.first_name %>
-        <% end %>
-        </td>
-      </tr>
+        <tr>
+          <th>購入者</th>
+          <td><%= link_to admins_customer_path(@order.customer) do %>
+          <%= @order.customer.last_name %>
+          <%= @order.customer.first_name %>
+          <% end %>
+          </td>
+        </tr>
 
-      <tr>
-        <th>配送先</th>
-        <td><%= @order.address %></td>
-      </tr>
+        <tr>
+          <th>配送先</th>
+          <td><%= @order.address %></td>
+        </tr>
+  
+        <tr>
+          <th>支払方法</th>
+          <td><%= @order.payment_method %></td>
+        </tr>
+  
+        <tr>
+          <th>注文ステータス</th>
+          <td>
+          <%= form_for (@order), url:admins_order_path(@order) do |f| %>
+          <%= f.select :order_status,Order.order_statuses.keys.to_a %>
+          <%= f.submit "更新", class: "btn btn-success" %>
+          <% end %>
+          </td>
+        </tr>
 
-      <tr>
-        <th>支払方法</th>
-        <td><%= @order.payment_method %></td>
-      </tr>
-
-      <tr>
-        <th>注文ステータス</th>
-        <td>
-        <%= form_for (@order), url:admins_order_path(@order) do |f| %>
-        <%= f.select :order_status,Order.order_statuses.keys.to_a %>
-        <%= f.submit "更新", class: "btn btn-success" %>
-        <% end %>
-        </td>
-      </tr>
-
-    </tbody>
-  </table>
-
+      </tbody>
+    </table>
 
     <table class="table">
       <thead>
@@ -52,25 +49,25 @@
       </thead>
 
       <tbody>
-      <% @order_details.each do |order_detail| %>
+      <% @order_details.each do |order_details| %>
           <tr>
-            <td><%= order_detail.item.name %></td>
+            <td><%= order_details.item.name %></td>
           </tr>
           <tr>
-            <td><%= (order_detail.price).floor.to_s(:delimited, delimiter: ',') %></td>
+            <td><%= (order_details.price).floor.to_s(:delimited, delimiter: ',') %></td>
           </tr>
           <tr>
-            <td><%= order_detail.amount %></td>
+            <td><%= order_details.amount %></td>
           </tr>
           <tr>
-            <td><%= (order_detail.price * order_detail.amount).floor.to_s(:delimited, delimiter: ',') %></td>
+            <td><%= (order_details.price * order_details.amount).floor.to_s(:delimited, delimiter: ',') %></td>
           </tr>
           <tr>
               <td>  
-              <%= form_with model: order_detail, url:admin_order_detail_path(order_detail) do |f|  %>
+              <%= form_with model: order_detail, url:admins_order_detail_path(order_detail) do |f|  %>
               <%= f.select :making_status, OrderDetail.making_status.keys.to_a %>
               <%= f.submit '更新',class:"btn btn-success" %>
-              <% end %>
+                <% end %>
             </td>          
           </tr>
         </table>
@@ -79,7 +76,7 @@
       </table>
     </div>
 
-    <br><br><br><br><br><br><br><br><br><br>
+    <br><br><br>
     <div class="col-xs-4">
       <table class="table">
         <tbody>
@@ -98,11 +95,9 @@
             <td>請求合計金額</td>
             <td><%= @order.total_payment.to_s(:delimited, delimiter: ',') %></td>
           </tr>
-        </tbody>
-      </table>
-     </div>
+          </tbody>
+        </table>
+       </div>
+      </div>
     </div>
-  </div>
-  </div>
-</div>
-</table>
+  </section>
