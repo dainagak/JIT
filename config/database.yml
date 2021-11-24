@@ -8,6 +8,7 @@ default: &default
   adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
+  socket: /var/lib/mysql/mysql.sock
 
 development:
   <<: *default
@@ -22,11 +23,12 @@ test:
 
 production:
   <<: *default
-  database: <%= ENV['JIT'] %>
+  database: <%= ENV['DB_DATABASE'] %>
   adapter: mysql2
   encoding: utf8mb4
   charset: utf8mb4
   collation: utf8mb4_general_ci
-  host: <%= ENV['rds-mysql-server.csdjqnmnztqr.ap-northeast-1.rds.amazonaws.com'] %>
-  username: <%= ENV['root'] %>
-  password: <%= ENV['daichi23'] %>
+  host: <%= ENV['DB_HOST'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
